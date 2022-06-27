@@ -9,7 +9,11 @@ public class Person {
 
     @Id
     @Column(name = "person_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_generator_person")
+    @SequenceGenerator(name = "seq_generator_person",
+            sequenceName = "person_id_seq",
+            allocationSize = 20
+    )
 
     private int person_id;
 
